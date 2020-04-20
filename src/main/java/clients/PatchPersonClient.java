@@ -14,7 +14,7 @@ public class PatchPersonClient extends BaseAPI {
         BaseAPI.baseConfig();
     }
 
-    public Person patchPerson(Person person) {
+    public ValidatableResponse patchPerson(Person person) {
         return
             given().
                 spec(spec).
@@ -24,8 +24,7 @@ public class PatchPersonClient extends BaseAPI {
                 patch("/people/{id}").
             then().
                 statusCode(HttpStatus.SC_OK).
-                contentType(ContentType.JSON).
-                extract().body().as(Person.class);
+                contentType(ContentType.JSON);
     }
 
     public ValidatableResponse patchPersonBadRequest(Person person) {
@@ -37,8 +36,7 @@ public class PatchPersonClient extends BaseAPI {
             when().
                 patch("/people/{id}").
             then().
-                statusCode(HttpStatus.SC_BAD_REQUEST).
-                contentType(ContentType.JSON);
+                statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 
     public ValidatableResponse patchPersonNotFound(Person person) {
@@ -50,7 +48,6 @@ public class PatchPersonClient extends BaseAPI {
             when().
                 patch("/people/{id}").
             then().
-                statusCode(HttpStatus.SC_NOT_FOUND).
-                contentType(ContentType.JSON);
+                statusCode(HttpStatus.SC_NOT_FOUND);
     }
 }

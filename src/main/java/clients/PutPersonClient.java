@@ -14,7 +14,7 @@ public class PutPersonClient extends BaseAPI {
         BaseAPI.baseConfig();
     }
 
-    public Person putPerson(Person person) {
+    public ValidatableResponse putPerson(Person person) {
         return
             given().
                 spec(spec).
@@ -24,8 +24,7 @@ public class PutPersonClient extends BaseAPI {
                 put("/people/{id}").
             then().
                 statusCode(HttpStatus.SC_OK).
-                contentType(ContentType.JSON).
-                extract().body().as(Person.class);
+                contentType(ContentType.JSON);
     }
 
     public ValidatableResponse putPersonBadRequest(Person person) {
@@ -50,8 +49,6 @@ public class PutPersonClient extends BaseAPI {
             when().
                 put("/people/{id}").
             then().
-                statusCode(HttpStatus.SC_NOT_FOUND).
-                contentType(ContentType.JSON);
+                statusCode(HttpStatus.SC_NOT_FOUND);
     }
-
 }

@@ -14,7 +14,7 @@ public class PostPersonClient extends BaseAPI {
         BaseAPI.baseConfig();
     }
 
-    public Person postPerson(Person person) {
+    public ValidatableResponse postPerson(Person person) {
         return
             given().
                 spec(spec).
@@ -23,8 +23,7 @@ public class PostPersonClient extends BaseAPI {
                 post("/people").
             then().
                 statusCode(HttpStatus.SC_CREATED).
-                contentType(ContentType.JSON).
-                extract().body().as(Person.class);
+                contentType(ContentType.JSON);
     }
 
     public ValidatableResponse postPersonBadRequest(Person person) {
