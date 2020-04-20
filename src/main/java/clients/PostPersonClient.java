@@ -20,7 +20,7 @@ public class PostPersonClient extends BaseAPI {
                 spec(spec).
                 body(person).
             when().
-                post("/people").
+                post(PATH).
             then().
                 statusCode(HttpStatus.SC_CREATED).
                 contentType(ContentType.JSON);
@@ -32,7 +32,7 @@ public class PostPersonClient extends BaseAPI {
                 spec(spec).
                 body(person).
             when().
-                post("/people").
+                post(PATH).
             then().
                 statusCode(HttpStatus.SC_BAD_REQUEST).
                 contentType(ContentType.JSON);

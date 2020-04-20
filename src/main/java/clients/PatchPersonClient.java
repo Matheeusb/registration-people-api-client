@@ -21,7 +21,7 @@ public class PatchPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                patch("/people/{id}").
+                patch(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
@@ -34,7 +34,7 @@ public class PatchPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                patch("/people/{id}").
+                patch(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_BAD_REQUEST);
     }
@@ -46,7 +46,7 @@ public class PatchPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                patch("/people/{id}").
+                patch(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND);
     }

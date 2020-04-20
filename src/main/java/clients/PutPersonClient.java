@@ -21,7 +21,7 @@ public class PutPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                put("/people/{id}").
+                put(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
@@ -34,7 +34,7 @@ public class PutPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                put("/people/{id}").
+                put(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_BAD_REQUEST).
                 contentType(ContentType.JSON);
@@ -47,7 +47,7 @@ public class PutPersonClient extends BaseAPI {
                 pathParam("id", person.getId()).
                 body(person).
             when().
-                put("/people/{id}").
+                put(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND);
     }

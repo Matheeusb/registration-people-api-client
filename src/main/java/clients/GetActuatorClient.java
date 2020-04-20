@@ -18,7 +18,7 @@ public class GetActuatorClient extends BaseAPI {
             given().
                 spec(spec).
             when().
-                get("/actuator/health").
+                get(PATH_ACTUATOR).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);

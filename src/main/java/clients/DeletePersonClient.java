@@ -18,7 +18,7 @@ public class DeletePersonClient extends BaseAPI {
                 spec(spec).
                 pathParam("id", id).
             when().
-                delete("/people/{id}").
+                delete(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_OK);
     }
@@ -29,7 +29,7 @@ public class DeletePersonClient extends BaseAPI {
                 spec(spec).
                 pathParam("id", id).
             when().
-                delete("/people/{id}").
+                delete(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND);
     }

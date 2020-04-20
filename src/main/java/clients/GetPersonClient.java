@@ -18,7 +18,7 @@ public class GetPersonClient extends BaseAPI {
             given().
                 spec(spec).
             when().
-                get("/people").
+                get(PATH).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
@@ -30,7 +30,7 @@ public class GetPersonClient extends BaseAPI {
                 spec(spec).
                 pathParam("id", id).
             when().
-                get("/people/{id}").
+                get(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
@@ -42,7 +42,7 @@ public class GetPersonClient extends BaseAPI {
                 spec(spec).
                 pathParam("id", id).
             when().
-                get("/people/{id}").
+                get(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND);
     }
