@@ -1,4 +1,4 @@
-package commons;
+package br.com.matheus.people.api.commons;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;

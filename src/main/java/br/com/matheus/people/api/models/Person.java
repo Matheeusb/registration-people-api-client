@@ -1,4 +1,4 @@
-package models;
+package br.com.matheus.people.api.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

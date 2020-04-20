@@ -1,53 +1,48 @@
-package clients;
+package br.com.matheus.people.api.clients;
 
-import commons.BaseAPI;
+import br.com.matheus.people.api.commons.BaseAPI;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import models.Person;
 import org.apache.http.HttpStatus;
 
 import static io.restassured.RestAssured.given;
 
-public class PutPersonClient extends BaseAPI {
+public class GetPersonClient extends BaseAPI {
 
-    public PutPersonClient() {
+    public GetPersonClient() {
         BaseAPI.baseConfig();
     }
 
-    public ValidatableResponse putPerson(Person person) {
+    public ValidatableResponse getPeople() {
         return
             given().
                 spec(spec).
-                pathParam("id", person.getId()).
-                body(person).
             when().
-                put(PATH_WITH_ID).
+                get(PATH).
             then().
                 statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
     }
 
-    public ValidatableResponse putPersonBadRequest(Person person) {
+    public ValidatableResponse getPerson(int id) {
         return
             given().
                 spec(spec).
-                pathParam("id", person.getId()).
-                body(person).
+                pathParam("id", id).
             when().
-                put(PATH_WITH_ID).
+                get(PATH_WITH_ID).
             then().
-                statusCode(HttpStatus.SC_BAD_REQUEST).
+                statusCode(HttpStatus.SC_OK).
                 contentType(ContentType.JSON);
     }
 
-    public ValidatableResponse putPersonNotFound(Person person) {
+    public ValidatableResponse getPersonNotFound(int id) {
         return
             given().
                 spec(spec).
-                pathParam("id", person.getId()).
-                body(person).
+                pathParam("id", id).
             when().
-                put(PATH_WITH_ID).
+                get(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND);
     }

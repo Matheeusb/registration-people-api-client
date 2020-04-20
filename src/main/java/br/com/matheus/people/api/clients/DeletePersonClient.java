@@ -1,6 +1,6 @@
-package clients;
+package br.com.matheus.people.api.clients;
 
-import commons.BaseAPI;
+import br.com.matheus.people.api.commons.BaseAPI;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 
