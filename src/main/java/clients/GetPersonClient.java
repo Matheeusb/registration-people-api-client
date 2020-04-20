@@ -3,10 +3,7 @@ package clients;
 import commons.BaseAPI;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import models.Person;
 import org.apache.http.HttpStatus;
-
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
