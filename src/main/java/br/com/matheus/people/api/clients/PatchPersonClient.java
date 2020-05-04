@@ -1,9 +1,9 @@
 package br.com.matheus.people.api.clients;
 
 import br.com.matheus.people.api.commons.BaseAPI;
+import br.com.matheus.people.api.models.Person;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import br.com.matheus.people.api.models.Person;
 import org.apache.http.HttpStatus;
 
 import static io.restassured.RestAssured.given;
@@ -14,12 +14,12 @@ public class PatchPersonClient extends BaseAPI {
         BaseAPI.baseConfig();
     }
 
-    public ValidatableResponse patchPerson(Person person) {
+    public ValidatableResponse patchPerson(Person person, String attribute) {
         return
             given().
                 spec(spec).
                 pathParam("id", person.getId()).
-                body(person).
+                body(attribute).
             when().
                 patch(PATH_WITH_ID).
             then().
@@ -27,24 +27,24 @@ public class PatchPersonClient extends BaseAPI {
                 contentType(ContentType.JSON);
     }
 
-    public ValidatableResponse patchPersonBadRequest(Person person) {
+    public ValidatableResponse patchPersonBadRequest(int id, String requestBody) {
         return
             given().
                 spec(spec).
-                pathParam("id", person.getId()).
-                body(person).
+                pathParam("id", id).
+                body(requestBody).
             when().
                 patch(PATH_WITH_ID).
             then().
                 statusCode(HttpStatus.SC_BAD_REQUEST);
     }
 
-    public ValidatableResponse patchPersonNotFound(Person person) {
+    public ValidatableResponse patchPersonNotFound(int id, String requestBody) {
         return
             given().
                 spec(spec).
-                pathParam("id", person.getId()).
-                body(person).
+                pathParam("id", id).
+                body(requestBody).
             when().
                 patch(PATH_WITH_ID).
             then().
