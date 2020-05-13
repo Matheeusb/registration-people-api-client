@@ -9,8 +9,8 @@ import static io.restassured.RestAssured.given;
 
 public class GetPersonClient extends BaseAPI {
 
-    public GetPersonClient() {
-        BaseAPI.baseConfig();
+    public GetPersonClient(String environment) {
+        BaseAPI.baseConfig(environment);
     }
 
     public ValidatableResponse getPeople() {

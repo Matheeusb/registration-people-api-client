@@ -10,8 +10,8 @@ import static io.restassured.RestAssured.given;
 
 public class PostPersonClient extends BaseAPI {
 
-    public PostPersonClient() {
-        BaseAPI.baseConfig();
+    public PostPersonClient(String environment) {
+        BaseAPI.baseConfig(environment);
     }
 
     public ValidatableResponse postPerson(Person person) {

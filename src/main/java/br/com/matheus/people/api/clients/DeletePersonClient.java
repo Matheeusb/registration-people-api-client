@@ -8,8 +8,8 @@ import static io.restassured.RestAssured.given;
 
 public class DeletePersonClient extends BaseAPI {
 
-    public DeletePersonClient() {
-        BaseAPI.baseConfig();
+    public DeletePersonClient(String environment) {
+        BaseAPI.baseConfig(environment);
     }
 
     public ValidatableResponse deletePerson(int id) {

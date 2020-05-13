@@ -9,8 +9,8 @@ import static io.restassured.RestAssured.given;
 
 public class GetActuatorClient extends BaseAPI {
 
-    public GetActuatorClient() {
-        BaseAPI.baseConfig();
+    public GetActuatorClient(String environment) {
+        BaseAPI.baseConfig(environment);
     }
 
     public ValidatableResponse getActuatorHealth() {
