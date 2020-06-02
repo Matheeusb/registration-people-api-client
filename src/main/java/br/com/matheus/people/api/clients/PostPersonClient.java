@@ -6,6 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import br.com.matheus.people.api.models.Person;
 import org.apache.http.HttpStatus;
 
+import static br.com.matheus.people.api.commons.PathConstant.*;
 import static io.restassured.RestAssured.given;
 
 public class PostPersonClient extends BaseAPI {

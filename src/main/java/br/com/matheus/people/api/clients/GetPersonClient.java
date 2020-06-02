@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 
+import static br.com.matheus.people.api.commons.PathConstant.*;
 import static io.restassured.RestAssured.given;
 
 public class GetPersonClient extends BaseAPI {
@@ -28,7 +29,7 @@ public class GetPersonClient extends BaseAPI {
         return
             given().
                 spec(spec).
-                pathParam("id", id).
+                pathParam(PATH_PARAM_ID, id).
             when().
                 get(PATH_WITH_ID).
             then().
@@ -40,7 +41,7 @@ public class GetPersonClient extends BaseAPI {
         return
             given().
                 spec(spec).
-                pathParam("id", id).
+                pathParam(PATH_PARAM_ID, id).
             when().
                 get(PATH_WITH_ID).
             then().
